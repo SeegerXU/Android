@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--字体尺寸-->
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_default">14sp</dimen>
+
+    <!--线条尺寸-->
+    <dimen name="line_default">0.5dp</dimen>
+
+    <!--默认的几个尺寸-->
+    <dimen name="margin_default">8dp</dimen>
+    <dimen name="margin_big">16dp</dimen>
+    <dimen name="margin_max">30dp</dimen>
+    <dimen name="margin_small">5dp</dimen>
+    <dimen name="margin_smaller">2dp</dimen>
+</resources>
