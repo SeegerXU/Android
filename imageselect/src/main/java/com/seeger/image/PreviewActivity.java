@@ -13,7 +13,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.seeger.image.adapter.BaseAdapter;
 import com.seeger.image.adapter.PreviewAdapter;
 import com.seeger.image.adapter.SelectAdapter;

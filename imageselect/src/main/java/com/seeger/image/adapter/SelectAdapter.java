@@ -4,6 +4,8 @@ import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -48,7 +50,7 @@ public class SelectAdapter extends BaseAdapter {
         return data == null ? 0 : data.size();
     }
 
-    private class ContentViewHolder extends BaseHolder<MediaBean> {
+    public class ContentViewHolder extends BaseHolder<MediaBean> {
 
         private LinearLayout ll_border;
         private ImageView img_select;
@@ -70,6 +72,38 @@ public class SelectAdapter extends BaseAdapter {
                 img_copy.setVisibility(View.VISIBLE);
                 ImageLoader.loadImage(img_select, data.getCropPath());
             }
+        }
+
+        public void onItemSelected() {
+            startAnimation();
+        }
+
+        public void onItemClear() {
+            clearAnimation();
+        }
+
+        private void startAnimation(){
+            /** 设置缩放动画 */
+            final ScaleAnimation animation =new ScaleAnimation(1.0f, 1.1f, 1.0f, 1.1f,
+                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            animation.setDuration(300);//设置动画持续时间
+            /** 常用方法 */
+            //animation.setRepeatCount(int repeatCount);//设置重复次数
+            animation.setFillAfter(true);//动画执行完后是否停留在执行完的状态
+            //animation.setStartOffset(long startOffset);//执行前的等待时间
+            itemView.startAnimation(animation);
+        }
+
+        private void clearAnimation(){
+            /** 设置缩放动画 */
+            final ScaleAnimation animation =new ScaleAnimation(1.1f, 1.0f, 1.1f, 1.0f,
+                    Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            animation.setDuration(300);//设置动画持续时间
+            /** 常用方法 */
+            //animation.setRepeatCount(int repeatCount);//设置重复次数
+            animation.setFillAfter(true);//动画执行完后是否停留在执行完的状态
+            //animation.setStartOffset(long startOffset);//执行前的等待时间
+            itemView.startAnimation(animation);
         }
     }
 
